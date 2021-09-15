@@ -23,6 +23,8 @@ namespace Cwi.TreinamentoTesteAutomatizado
         {
             var configuration = GetConfiguration();
             var httpRequestController = new HttpRequestController(GetHttpClientFactory(), configuration["ExampleApiUrl"]);
+
+            ObjectContainer.RegisterInstanceAs<IConfiguration>(configuration);
             ObjectContainer.RegisterInstanceAs<HttpRequestController>(httpRequestController);
         }
 

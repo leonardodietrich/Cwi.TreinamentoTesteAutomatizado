@@ -26,6 +26,15 @@ namespace Cwi.TreinamentoTesteAutomatizado.Steps.EmployeeSteps
 
         }
 
+        [Given(@"que seja solicitado a criação de um novo funcionário sem o preenchimento dos campos obrigatórios")]
+        public async Task DadoQueSejaSolicitadoACriacaoDeUmNovoFuncionarioSemOPreenchimentoDosCamposObrigatorios()
+        {
+            HttpRequestController.AddJsonBody(new { });
+
+            await HttpRequestController.SendAsync("v1/employees", "POST");
+        }
+
+
         [Then(@"o funcionário não será cadastrado")]
         public void EntaoOFuncionarioNaoSeraCadastrado()
         {
@@ -43,6 +52,15 @@ namespace Cwi.TreinamentoTesteAutomatizado.Steps.EmployeeSteps
         {
             Assert.AreEqual(HttpStatusCode.Unauthorized, HttpRequestController.GetResponseHttpStatusCode());
         }
+
+        [Then(@"será retornado uma mensagem de falha de preenchimento dos campos obrigatórios")]
+        public void EntaoSeraRetornadoUmaMensagemDeFalhaDePreenchimentoDosCamposObrigatorios()
+        {
+            Assert.AreEqual(HttpStatusCode.BadRequest, HttpRequestController.GetResponseHttpStatusCode());
+
+
+        }
+
 
     }
 }

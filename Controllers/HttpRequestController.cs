@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -81,6 +82,13 @@ namespace Cwi.TreinamentoTesteAutomatizado.Controllers
             var responseContent = await GetResponseBodyContent();
 
             return JsonConvert.DeserializeObject<T>(responseContent);
+        }
+
+        public async Task<List<T>> GetListResponseBody<T>()
+        {
+            var responseContent = await GetResponseBodyContent();
+
+            return JsonConvert.DeserializeObject<List<T>>(responseContent);
         }
 
         public async Task<string> GetResponseBodyContent()

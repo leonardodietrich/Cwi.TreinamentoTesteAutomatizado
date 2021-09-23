@@ -41,9 +41,13 @@ namespace Cwi.TreinamentoTesteAutomatizado.Steps.Common
         }
 
         [Given(@"que a tabela '(.*)' tenha os registros")]
-        public void DadoQueATabelaTenhaOsRegistros(string tableName, Table table)
+        public async Task DadoQueATabelaTenhaOsRegistros(string tableName, Table table)
         {
-            
+            await PostgreDatabaseController.InsertInto(tableName, table);
+
+            var currentItens = await PostgreDatabaseController.SelectFrom(tableName, table);
+
+            Assert.NotZero(currentItens.Count(), $"Os registros não foram inseridos na tabela {tableName}.");
         }
 
 

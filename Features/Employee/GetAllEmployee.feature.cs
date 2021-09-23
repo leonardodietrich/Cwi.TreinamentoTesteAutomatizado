@@ -115,6 +115,69 @@ this.ScenarioInitialize(scenarioInfo);
             }
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Obter os funcionários com registros na tabela")]
+        public virtual void ObterOsFuncionariosComRegistrosNaTabela()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Obter os funcionários com registros na tabela", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 9
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 10
+ testRunner.Given("que a base de dados esteja limpa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line hidden
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Name",
+                            "Email",
+                            "Active"});
+                table4.AddRow(new string[] {
+                            "\'Funcionário 1\'",
+                            "\'funcionario1@empresa.com\'",
+                            "True"});
+                table4.AddRow(new string[] {
+                            "\'Funcionário 2\'",
+                            "\'funcionario2@empresa.com\'",
+                            "False"});
+#line 11
+ testRunner.And("que a tabela \'Employee\' tenha os registros", ((string)(null)), table4, "E ");
+#line hidden
+#line 15
+ testRunner.And("que o usuário esteja autenticado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 16
+ testRunner.And("seja feita uma chamada do tipo \'GET\' para o endpoint \'v1/employees\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 17
+ testRunner.Then("o código de retorno será \'200\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line hidden
+#line 18
+ testRunner.And("vou receber um json com a response", "[\r\n  {\r\n\t\"id\": 1,\r\n\t\"name\": \"Funcionário 1\",\r\n\t\"email\": \"funcionario1@empresa.com" +
+                        "\",\r\n\t\"active\": true\r\n  },\r\n  {\r\n\t\"id\": 2,\r\n\t\"name\": \"Funcionário 2\",\r\n\t\"email\": " +
+                        "\"funcionario2@empresa.com\",\r\n\t\"active\": false\r\n  }\r\n]", ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

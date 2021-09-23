@@ -87,7 +87,42 @@ namespace Cwi.TreinamentoTesteAutomatizado.Controllers
             return filters.ToArray();
         }
 
-        
+        public async Task<IEnumerable<object>> InsertInto(string tableName, Table table)
+        {
+            var selectColumns = string.Join(",", GetColumnsForInsert(table));
+            var filterConditions = string.Join(",", GetFilterConditionsForInsert(table));
+
+            var query = $"INSERT INTO {tableName} ({selectColumns}) VALUES {filterConditions}";
+
+            return await Connection.QueryAsync(query);
+        }
+
+        private string[] GetColumnsForInsert(Table table)
+        {
+            return table.Header.Select(x => x).ToArray();
+        }
+
+        private string[] GetFilterConditionsForInsert(Table table)
+        {
+            List<string> filters = new List<string>();
+
+            for (int row = 0; row < table.Rows.Count; row++)
+            {
+                var rowConditions = new List<string>();
+
+                for (int header = 0; header < table.Header.Count; header++)
+                {
+                    string column = table.Header.ElementAt(header);
+                    string value = table.Rows[row][header];
+
+                    rowConditions.Add(value);
+                }
+
+                filters.Add($"({string.Join(",", rowConditions)})");
+            }
+
+            return filters.ToArray();
+        }
 
     }
 }

@@ -1,12 +1,17 @@
-﻿Funcionalidade: Obter todos os funcionários
+﻿@GetAllEmployees
+Funcionalidade: Obter todos os funcionários
+
+Cenario: Obter os funcionários sem autenticar
+	Dado que o usuário não esteja autenticado
+	Quando o usuário solicitar um 'GET' do endpoint 'v1/employees'
+	Entao o código de retorno será '401'	
 
 Cenario: Obter os funcionários sem registros na base
 	Dado que a base de dados esteja limpa
 	E que o usuário esteja autenticado
-	E seja feita uma chamada do tipo 'GET' para o endpoint 'v1/employees'
+	Quando o usuário solicitar um 'GET' do endpoint 'v1/employees'
 	Então o código de retorno será '204'
 
-@Desafio
 Cenario: Obter os funcionários com registros na tabela
 	Dado que a base de dados esteja limpa
 	E que a tabela 'Employee' tenha os registros
@@ -14,7 +19,7 @@ Cenario: Obter os funcionários com registros na tabela
 		| 'Funcionário 1' | 'funcionario1@empresa.com' | True   |
 		| 'Funcionário 2' | 'funcionario2@empresa.com' | False  |
 	E que o usuário esteja autenticado
-	E seja feita uma chamada do tipo 'GET' para o endpoint 'v1/employees'
+	Quando o usuário solicitar um 'GET' do endpoint 'v1/employees'
 	Então o código de retorno será '200'
 	E vou receber um json com a response
 	"""

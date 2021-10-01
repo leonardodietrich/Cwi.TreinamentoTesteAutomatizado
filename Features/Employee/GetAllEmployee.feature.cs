@@ -21,12 +21,14 @@ namespace Cwi.TreinamentoTesteAutomatizado.Features.Employee
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Obter todos os funcionários")]
+    [NUnit.Framework.CategoryAttribute("GetAllEmployees")]
     public partial class ObterTodosOsFuncionariosFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private string[] _featureTags = ((string[])(null));
+        private string[] _featureTags = new string[] {
+                "GetAllEmployees"};
         
 #line 1 "GetAllEmployee.feature"
 #line hidden
@@ -35,7 +37,8 @@ namespace Cwi.TreinamentoTesteAutomatizado.Features.Employee
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pt-BR"), "Features/Employee", "Obter todos os funcionários", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pt-BR"), "Features/Employee", "Obter todos os funcionários", null, ProgrammingLanguage.CSharp, new string[] {
+                        "GetAllEmployees"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,13 +77,13 @@ namespace Cwi.TreinamentoTesteAutomatizado.Features.Employee
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Obter os funcionários sem registros na base")]
-        public virtual void ObterOsFuncionariosSemRegistrosNaBase()
+        [NUnit.Framework.DescriptionAttribute("Obter os funcionários sem autenticar")]
+        public virtual void ObterOsFuncionariosSemAutenticar()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Obter os funcionários sem registros na base", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 3
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Obter os funcionários sem autenticar", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -100,29 +103,26 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 4
- testRunner.Given("que a base de dados esteja limpa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
-#line hidden
 #line 5
- testRunner.And("que o usuário esteja autenticado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+ testRunner.Given("que o usuário não esteja autenticado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line hidden
 #line 6
- testRunner.And("seja feita uma chamada do tipo \'GET\' para o endpoint \'v1/employees\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+ testRunner.When("o usuário solicitar um \'GET\' do endpoint \'v1/employees\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line hidden
 #line 7
- testRunner.Then("o código de retorno será \'204\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+ testRunner.Then("o código de retorno será \'401\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Entao ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Obter os funcionários com registros na tabela")]
-        public virtual void ObterOsFuncionariosComRegistrosNaTabela()
+        [NUnit.Framework.DescriptionAttribute("Obter os funcionários sem registros na base")]
+        public virtual void ObterOsFuncionariosSemRegistrosNaBase()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Obter os funcionários com registros na tabela", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Obter os funcionários sem registros na base", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 9
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -146,6 +146,49 @@ this.ScenarioInitialize(scenarioInfo);
 #line 10
  testRunner.Given("que a base de dados esteja limpa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line hidden
+#line 11
+ testRunner.And("que o usuário esteja autenticado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 12
+ testRunner.When("o usuário solicitar um \'GET\' do endpoint \'v1/employees\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+#line hidden
+#line 13
+ testRunner.Then("o código de retorno será \'204\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Obter os funcionários com registros na tabela")]
+        public virtual void ObterOsFuncionariosComRegistrosNaTabela()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Obter os funcionários com registros na tabela", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 15
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 16
+ testRunner.Given("que a base de dados esteja limpa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line hidden
                 TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                             "Name",
                             "Email",
@@ -158,19 +201,19 @@ this.ScenarioInitialize(scenarioInfo);
                             "\'Funcionário 2\'",
                             "\'funcionario2@empresa.com\'",
                             "False"});
-#line 11
+#line 17
  testRunner.And("que a tabela \'Employee\' tenha os registros", ((string)(null)), table4, "E ");
 #line hidden
-#line 15
+#line 21
  testRunner.And("que o usuário esteja autenticado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
-#line 16
- testRunner.And("seja feita uma chamada do tipo \'GET\' para o endpoint \'v1/employees\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line 22
+ testRunner.When("o usuário solicitar um \'GET\' do endpoint \'v1/employees\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line hidden
-#line 17
+#line 23
  testRunner.Then("o código de retorno será \'200\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
-#line 18
+#line 24
  testRunner.And("vou receber um json com a response", "[\r\n  {\r\n\t\"id\": 1,\r\n\t\"name\": \"Funcionário 1\",\r\n\t\"email\": \"funcionario1@empresa.com" +
                         "\",\r\n\t\"active\": true\r\n  },\r\n  {\r\n\t\"id\": 2,\r\n\t\"name\": \"Funcionário 2\",\r\n\t\"email\": " +
                         "\"funcionario2@empresa.com\",\r\n\t\"active\": false\r\n  }\r\n]", ((TechTalk.SpecFlow.Table)(null)), "E ");

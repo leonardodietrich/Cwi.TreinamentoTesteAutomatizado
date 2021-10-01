@@ -17,6 +17,8 @@ namespace Cwi.TreinamentoTesteAutomatizado.Steps.Common
             HttpRequestController = httpRequestController;
         }
 
+
+        [When(@"o usuário solicitar um '(.*)' do endpoint '(.*)'")]
         [Given(@"seja feita uma chamada do tipo '(.*)' para o endpoint '(.*)'")]
         public async Task DadoSejaFeitaUmaChamadaDoTipoParaOEndpoint(string httpMethodName, string endpoint)
         {

@@ -115,18 +115,18 @@ this.ScenarioInitialize(scenarioInfo);
 #line 13
  testRunner.Then("o código de retorno será \'201\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
-                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                             "Id",
                             "Name",
                             "Email",
                             "Active"});
-                table3.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "1",
                             string.Format("\'{0}\'", name),
                             "\'funcionario1@empresa.com\'",
                             "True"});
 #line 14
- testRunner.And("o registro estará disponível na tabela \'Employee\' da base de dados", ((string)(null)), table3, "E ");
+ testRunner.And("o registro estará disponível na tabela \'Employee\' da base de dados", ((string)(null)), table4, "E ");
 #line hidden
             }
             this.ScenarioCleanup();

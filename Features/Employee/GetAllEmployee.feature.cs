@@ -189,20 +189,20 @@ this.ScenarioInitialize(scenarioInfo);
 #line 16
  testRunner.Given("que a base de dados esteja limpa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line hidden
-                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                             "Name",
                             "Email",
                             "Active"});
-                table4.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "\'Funcionário 1\'",
                             "\'funcionario1@empresa.com\'",
                             "True"});
-                table4.AddRow(new string[] {
+                table5.AddRow(new string[] {
                             "\'Funcionário 2\'",
                             "\'funcionario2@empresa.com\'",
                             "False"});
 #line 17
- testRunner.And("que a tabela \'Employee\' tenha os registros", ((string)(null)), table4, "E ");
+ testRunner.And("que a tabela \'Employee\' tenha os registros", ((string)(null)), table5, "E ");
 #line hidden
 #line 21
  testRunner.And("que o usuário esteja autenticado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");

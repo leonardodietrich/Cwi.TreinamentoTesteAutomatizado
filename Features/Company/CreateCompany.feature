@@ -1,6 +1,10 @@
-﻿Funcionalidade: Criar empresa
+﻿@CreateCompany
+Funcionalidade: Cadastra empresas na base de dados
+		Como usuário
+		Eu quero cadastrar empresas
+		Para adicioná-las na base de dados
 
-Cenario: Criação de empresa com sucesso
+Cenario: Validando cadastro de empresa
 	Dado que a base de dados esteja limpa
 	E que o usuário esteja autenticado
 	E seja feita uma chamada do tipo 'POST' para o endpoint 'v1/companies' com o corpo da requisição

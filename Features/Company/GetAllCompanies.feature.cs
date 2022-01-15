@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Cwi.TreinamentoTesteAutomatizado.Features.Employee
+namespace Cwi.TreinamentoTesteAutomatizado.Features.Company
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,26 +20,26 @@ namespace Cwi.TreinamentoTesteAutomatizado.Features.Employee
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Cadastro de funcionários")]
-    [NUnit.Framework.CategoryAttribute("Employee")]
-    public partial class CadastroDeFuncionariosFeature
+    [NUnit.Framework.DescriptionAttribute("Obter empresas cadastradas na base de dados")]
+    [NUnit.Framework.CategoryAttribute("GetAllCompanies")]
+    public partial class ObterEmpresasCadastradasNaBaseDeDadosFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = new string[] {
-                "Employee"};
+                "GetAllCompanies"};
         
-#line 1 "CreateEmployee.feature"
+#line 1 "GetAllCompanies.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pt-BR"), "Features/Employee", "Cadastro de funcionários", "\tSendo um usuário com as devidas pesmissões\r\n\tQuero poder cadastrar um novo funci" +
-                    "onário", ProgrammingLanguage.CSharp, new string[] {
-                        "Employee"});
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pt-BR"), "Features/Company", "Obter empresas cadastradas na base de dados", "\tComo usuário\r\n\tEu quero listar as empresas\r\n\tPara visualizar a lista de empresas" +
+                    " presentes na base de dados", ProgrammingLanguage.CSharp, new string[] {
+                        "GetAllCompanies"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -78,14 +78,12 @@ namespace Cwi.TreinamentoTesteAutomatizado.Features.Employee
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Cadastro de funcionário sem autenticação")]
-        [NUnit.Framework.CategoryAttribute("CreateEmployee")]
-        public virtual void CadastroDeFuncionarioSemAutenticacao()
+        [NUnit.Framework.DescriptionAttribute("Validando busca de empresas para usuário não autenticado")]
+        public virtual void ValidandoBuscaDeEmpresasParaUsuarioNaoAutenticado()
         {
-            string[] tagsOfScenario = new string[] {
-                    "CreateEmployee"};
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cadastro de funcionário sem autenticação", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validando busca de empresas para usuário não autenticado", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -110,28 +108,23 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("que o usuário não esteja autenticado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line hidden
 #line 9
- testRunner.And("que seja solicitado a criação de um novo funcionário", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+ testRunner.When("o usuário solicitar um \'GET\' do endpoint \'v1/companies\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line hidden
 #line 10
- testRunner.Then("o funcionário não será cadastrado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
-#line hidden
-#line 11
- testRunner.And("será retornado uma mensagem de falha de autenticação", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+ testRunner.Then("o código de retorno será \'401\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Entao ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Cadastro de funcionário sem preencher os campos obrigatório")]
-        [NUnit.Framework.CategoryAttribute("CreateEmployee")]
-        public virtual void CadastroDeFuncionarioSemPreencherOsCamposObrigatorio()
+        [NUnit.Framework.DescriptionAttribute("Validando busca de empresas sem registros na base de dados")]
+        public virtual void ValidandoBuscaDeEmpresasSemRegistrosNaBaseDeDados()
         {
-            string[] tagsOfScenario = new string[] {
-                    "CreateEmployee"};
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cadastro de funcionário sem preencher os campos obrigatório", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 14
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validando busca de empresas sem registros na base de dados", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 12
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -151,36 +144,30 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 13
+ testRunner.Given("que o usuário esteja autenticado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line hidden
+#line 14
+ testRunner.And("que a base de dados esteja limpa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
 #line 15
- testRunner.Given("que a base de dados esteja limpa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+ testRunner.When("o usuário solicitar um \'GET\' do endpoint \'v1/companies\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line hidden
 #line 16
- testRunner.And("que o usuário esteja autenticado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line hidden
-#line 17
- testRunner.And("que seja solicitado a criação de um novo funcionário sem o preenchimento dos camp" +
-                        "os obrigatórios", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
-#line hidden
-#line 18
- testRunner.Then("o funcionário não será cadastrado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
-#line hidden
-#line 19
- testRunner.And("será retornado uma mensagem de falha de preenchimento dos campos obrigatórios", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+ testRunner.Then("o código de retorno será \'204\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Entao ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Cadastro de funcionário com sucesso")]
-        [NUnit.Framework.CategoryAttribute("CreateEmployee")]
-        public virtual void CadastroDeFuncionarioComSucesso()
+        [NUnit.Framework.DescriptionAttribute("Validando busca de empresas com registros na base de dados")]
+        public virtual void ValidandoBuscaDeEmpresasComRegistrosNaBaseDeDados()
         {
-            string[] tagsOfScenario = new string[] {
-                    "CreateEmployee"};
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cadastro de funcionário com sucesso", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 22
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validando busca de empresas com registros na base de dados", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -200,30 +187,46 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 23
- testRunner.Given("que a base de dados esteja limpa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line 19
+ testRunner.Given("que o usuário esteja autenticado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line hidden
-#line 24
- testRunner.And("que o usuário esteja autenticado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line 20
+ testRunner.And("que a base de dados esteja limpa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
-#line 25
- testRunner.And("que seja solicitado a criação de um novo funcionário", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "code",
+                            "name",
+                            "maxemployeesnumber",
+                            "active"});
+                table2.AddRow(new string[] {
+                            "\'001\'",
+                            "\'Empresa 1\'",
+                            "100",
+                            "true"});
+                table2.AddRow(new string[] {
+                            "\'002\'",
+                            "\'Empresa 2\'",
+                            "150",
+                            "false"});
+                table2.AddRow(new string[] {
+                            "\'003\'",
+                            "\'Empresa 3\'",
+                            "80",
+                            "true"});
+#line 21
+ testRunner.And("que a tabela \'company\' tenha os registros", ((string)(null)), table2, "E ");
 #line hidden
 #line 26
- testRunner.Then("o funcionário será cadastrado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+ testRunner.When("o usuário solicitar um \'GET\' do endpoint \'v1/companies\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line hidden
-                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Id",
-                            "Name",
-                            "Email",
-                            "Active"});
-                table3.AddRow(new string[] {
-                            "1",
-                            "\'Funcionário 1\'",
-                            "\'funcionario1@empresa.com\'",
-                            "True"});
 #line 27
- testRunner.And("o registro estará disponível na tabela \'Employee\' da base de dados", ((string)(null)), table3, "E ");
+ testRunner.Then("o código de retorno será \'200\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Entao ");
+#line hidden
+#line 28
+ testRunner.And("vou receber um json com a response", "[\r\n  {\r\n\t\"id\": 1,\r\n\t\"name\": \"Empresa 1\",\r\n\t\"code\": \"001\",\r\n\t\"active\": true\r\n  },\r" +
+                        "\n  {\r\n    \"id\": 2,\r\n\t\"name\": \"Empresa 2\",\r\n\t\"code\": \"002\",\r\n\t\"active\": false\r\n  " +
+                        "},\r\n  {\r\n    \"id\": 3,\r\n\t\"name\": \"Empresa 3\",\r\n\t\"code\": \"003\",\r\n\t\"active\": true\r\n" +
+                        "  }\r\n]", ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -20,13 +20,15 @@ namespace Cwi.TreinamentoTesteAutomatizado.Features.Company
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Criar empresa")]
-    public partial class CriarEmpresaFeature
+    [NUnit.Framework.DescriptionAttribute("Cadastra empresas na base de dados")]
+    [NUnit.Framework.CategoryAttribute("CreateCompany")]
+    public partial class CadastraEmpresasNaBaseDeDadosFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private string[] _featureTags = ((string[])(null));
+        private string[] _featureTags = new string[] {
+                "CreateCompany"};
         
 #line 1 "CreateCompany.feature"
 #line hidden
@@ -35,7 +37,9 @@ namespace Cwi.TreinamentoTesteAutomatizado.Features.Company
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pt-BR"), "Features/Company", "Criar empresa", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pt-BR"), "Features/Company", "Cadastra empresas na base de dados", "\t\tComo usuário\r\n\t\tEu quero cadastrar empresas\r\n\t\tPara adicioná-las na base de dad" +
+                    "os", ProgrammingLanguage.CSharp, new string[] {
+                        "CreateCompany"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,15 +78,15 @@ namespace Cwi.TreinamentoTesteAutomatizado.Features.Company
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Criação de empresa com sucesso")]
+        [NUnit.Framework.DescriptionAttribute("Validando cadastro de empresa")]
         [NUnit.Framework.TestCaseAttribute("Empresa 1", null)]
-        public virtual void CriacaoDeEmpresaComSucesso(string name, string[] exampleTags)
+        public virtual void ValidandoCadastroDeEmpresa(string name, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Name", name);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Criação de empresa com sucesso", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 3
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validando cadastro de empresa", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -102,17 +106,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 4
+#line 8
  testRunner.Given("que a base de dados esteja limpa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
 #line hidden
-#line 5
+#line 9
  testRunner.And("que o usuário esteja autenticado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
-#line 6
+#line 10
  testRunner.And("seja feita uma chamada do tipo \'POST\' para o endpoint \'v1/companies\' com o corpo " +
                         "da requisição", string.Format("{{\r\n  \"name\": \"{0}\",\r\n  \"code\": \"001\",\r\n  \"maxEmployeesNumber\": 15\r\n}}", name), ((TechTalk.SpecFlow.Table)(null)), "E ");
 #line hidden
-#line 14
+#line 18
  testRunner.Then("o código de retorno será \'201\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -127,7 +131,7 @@ this.ScenarioInitialize(scenarioInfo);
                             string.Format("\'{0}\'", name),
                             "15",
                             "True"});
-#line 15
+#line 19
  testRunner.And("o registro estará disponível na tabela \'Company\' da base de dados", ((string)(null)), table1, "E ");
 #line hidden
             }
